@@ -143,7 +143,12 @@ class AjaxCtrl extends Controller
 	public function getPenjualan()
 	{
 		// $obats = Obat::select(['id', 'nama_obat', 'barcode', 'created_at', 'updated_at']);
-		$penjualan = Transaksi::with('obat')->get();
+		// $penjualan = Transaksi::with('obat')->get();
+
+		$penjualan = DB::table('transaksi')
+							->join('obat', 'transaksi.obat_id', '=', 'obat.id')
+							->select(['obat.nama_obat', 'transaksi.*'])
+							->orderBy('transaksi.id', 'desc');
 
 		return Datatables::of($penjualan)
 				->addColumn('action', function ($penjualan)

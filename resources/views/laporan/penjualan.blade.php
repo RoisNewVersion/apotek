@@ -6,7 +6,7 @@
 <div class="">
 
 	<div class="">
-		<table id="obat" class="table table-bordered table-condensed table-striped">
+		<table id="lappenjualan" class="table table-bordered table-condensed table-striped">
 		    <thead>
 		    <tr>
 		        <th>Nama Obat</th>
@@ -29,12 +29,12 @@
 <script>
 	$(document).ready(function () {
 
-	var table = $('#obat').DataTable({
+	var table = $('#lappenjualan').DataTable({
 	        processing: true,
 	        serverSide: true,
 	        ajax: '{{ url('laporanpenjualan') }}',
 	        columns: [
-	            {data: 'obat[].nama_obat', name: 'nama_obat', orderable: false, searchable: false},
+	            {data: 'nama_obat', name: 'nama_obat', orderable: false, searchable: false},
 	            {data: 'jumlah', name: 'jumlah'},
 	            {data: 'harga', name: 'harga'},
 	            {data: 'total_harga', name: 'total_harga'},

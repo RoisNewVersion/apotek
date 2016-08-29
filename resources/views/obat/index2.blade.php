@@ -36,7 +36,7 @@
     var template = Handlebars.compile($("#details-template").html());
 
 	var table = $('#obat').DataTable({
-	        processing: true,
+	        processing : true,
 	        serverSide: true,
 	        ajax: '{{ url('dtobat') }}',
 	        columns: [

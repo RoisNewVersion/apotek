@@ -1,0 +1,8 @@
+laporan cetak penjualan ascending = okey fix
+print
+grafik
+
+laporan hutang supplier
+-jatuh tempo perminggu
+
+menu SP
