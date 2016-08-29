@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
 	{{-- chart hari ini --}}
-	<div class="span8">
+	<div class="span12">
 		<div class="widget">
 			<div class="widget-header">
 				<i class="icon-bar-chart"></i>
@@ -22,15 +22,15 @@
 				?>
 				
 				{{-- <canvas id="bar-chart" class="chart-holder" width="538" height="250"></canvas> --}}
-				<div style="width: 60%">
-                    <canvas id="bar-chart" width="350" height="230"></canvas>
+				<div >
+                    <canvas id="bar-chart" width="800" height="230"></canvas>
                 </div>
 			</div>
 		</div> 
 	</div>
 
 	{{-- chart bulan ini --}}
-	<div class="span8">
+	<div class="span12">
 		<div class="widget">
 			<div class="widget-header">
 				<i class="icon-bar-chart"></i>
@@ -50,8 +50,8 @@
 				?>
 				
 				{{-- <canvas id="bar-chart" class="chart-holder" width="538" height="250"></canvas> --}}
-				<div style="width: 60%">
-                    <canvas id="bar-chart_bln" width="350" height="230"></canvas>
+				<div >
+                    <canvas id="bar-chart_bln" width="800" height="230"></canvas>
                 </div>
 			</div>
 		</div> 

@@ -1,6 +1,6 @@
 laporan cetak penjualan ascending = okey fix
 print
-grafik
+grafik obat paling laris = fix = ambil 100 data obat terbesar (desc)
 
 laporan hutang supplier
 -jatuh tempo perminggu

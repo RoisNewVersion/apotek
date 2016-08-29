@@ -134,6 +134,8 @@ class LaporanCtrl extends Controller
                     ->select('obat.nama_obat as nama_obat_bln', DB::raw('count(transaksi.obat_id) as obat_count_bln'))
                     ->whereRaw("month(transaksi.created_at) = '$bln'")
                     ->groupBy('transaksi.obat_id')
+                    ->orderBy('obat_count_bln', 'desc')
+                    ->take(100)
                     ->get();
 
         // echo "<pre>";
