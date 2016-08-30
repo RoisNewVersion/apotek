@@ -7,11 +7,9 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-	    
+        
         "laracasts/flash": "dev-master",
         "laravelcollective/html": "5.1.*@dev",
-        "bosnadev/repositories": "dev-master",
-        "mitulgolakiya/laravel-api-generator": "dev-master",
         "uxweb/sweet-alert": "~1.0",
         "yajra/laravel-datatables-oracle": "~5.0",
         "barryvdh/laravel-dompdf": "0.6.*",
@@ -59,19 +57,5 @@
         "preferred-install": "dist"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-
-    "repositories": [
-    {
-        "type": "git",
-        "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git"
-    }
-    ],
-
-    "repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/mitulgolakiya/laracast-flash"
-    }
-    ]
+    "prefer-stable": true
 }
