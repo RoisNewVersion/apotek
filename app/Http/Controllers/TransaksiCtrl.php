@@ -268,7 +268,7 @@ class TransaksiCtrl extends Controller
                     ];
                 }
                     // masukan ke db.
-                // Transaksi::create($final);
+                Transaksi::create($final);
             }
 
         }
@@ -278,13 +278,9 @@ class TransaksiCtrl extends Controller
             // set ke session.
         Session::put('dataprint', $getN);
             // update status ke Y.
-        // Transaksi::where('status', '=', 'N')->update(['status'=>'Y']);
-            // panggil function donlod / print nota.
-            // $this->ambilNota();
+        Transaksi::where('status', '=', 'N')->update(['status'=>'Y']);
             //hapus session pembelian
-        // Session::forget('datatambahobat');
-            //hapus session dataprint
-            // Session::forget('dataprint');
+        Session::forget('datatambahobat');
 
         return redirect('hitungkembalian'); 
     }
