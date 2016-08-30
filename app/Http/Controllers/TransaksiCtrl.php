@@ -268,7 +268,7 @@ class TransaksiCtrl extends Controller
                     ];
                 }
                     // masukan ke db.
-                Transaksi::create($final);
+                // Transaksi::create($final);
             }
 
         }
@@ -278,11 +278,11 @@ class TransaksiCtrl extends Controller
             // set ke session.
         Session::put('dataprint', $getN);
             // update status ke Y.
-        Transaksi::where('status', '=', 'N')->update(['status'=>'Y']);
+        // Transaksi::where('status', '=', 'N')->update(['status'=>'Y']);
             // panggil function donlod / print nota.
             // $this->ambilNota();
             //hapus session pembelian
-        Session::forget('datatambahobat');
+        // Session::forget('datatambahobat');
             //hapus session dataprint
             // Session::forget('dataprint');
 
@@ -307,9 +307,9 @@ class TransaksiCtrl extends Controller
         $html = Session::get('dataprint') ;
         Session::forget('dataprint');
         $pdf = PDF::loadView('pdf.notabelikecil', compact('html'))
-        ->setPaper('a5')
+        ->setPaper(array(0, 0, 226.77, 286.77))
         ->setWarnings(false)
-        ->setOrientation('landscape');
+        ->setOrientation('portrait');
         return $pdf->download(date('Y-m-d h:m:i').'-apotek.pdf');
         // return view('pdf.notabelikecil', compact('html'));
     }

@@ -1,5 +1,5 @@
 laporan cetak penjualan ascending = okey fix
-print
+print = fix = tp pakai default browser, kalo generate langsung jadi pdf gak kuat ngangkat.
 grafik obat paling laris = fix = ambil 100 data obat terbesar (desc)
 
 laporan hutang supplier

@@ -7,22 +7,26 @@
 	<title>Nota</title>
 	<link rel="stylesheet" href="">
 	<style type="text/css">
+		@page{
+			margin: 0px 2px 0px 2px;
+		}
 		.kopatas
 		{
-			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-			/*border-collapse: collapse;*/
-			font-size: small;
+			font-family: sans-serif;
+			border-collapse: collapse;
+			font-size: 10px;
+			/*border: 1px solid black;*/
 		}
 	</style>
 </head>
 <body>
 
-	<div style="font-size: 9">
+	<div style="font-size: 7; text-align: center;">
 		<b>APOTEK BUGEL</b>
 		<br>
 	</div>
 
-	<table width="30%" class="kopatas" border="0" style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;">
+	<table width="100%" class="kopatas"  style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;">
 		<tr>
 			<th>No.</th>
 			<th>Nama</th>
@@ -44,7 +48,7 @@
 			?>
 			<tr style="padding: 4px 4px 4px 4px;">
 				<td><?= $no ?></td>
-				<td style="padding: 4px ;"><?= $data->obit->nama_obat?></td>
+				<td style="padding: 4px ;"><?= substr($data->obit->nama_obat, 0, 10)?></td>
 				<td style="padding: 4px ;"><?= $data->jumlah?></td>
 				<td style="padding: 4px ;"> <?php echo number_format($data->harga, 0, '', '.')?></td>
 				<td style="padding: 4px ;"> <?php echo number_format($data->total_harga, 0, '', '.') ?></td>

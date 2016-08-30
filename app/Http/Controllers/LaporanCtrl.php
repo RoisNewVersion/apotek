@@ -48,7 +48,7 @@ class LaporanCtrl extends Controller
     	->setPaper('a4')
     	->setWarnings(false);
     	// ->setOrientation('landscape');
-    	return $pdf->download(date('Y-m-d').'-laporan_bulanan.pdf');
+    	return $pdf->stream(date('Y-m-d').'-laporan_harian.pdf');
     	// return 'harian';
 
     	// echo "<pre>";
@@ -75,12 +75,12 @@ class LaporanCtrl extends Controller
     			->whereRaw("date(transaksi.created_at) between '$tglawal' and '$tglakhir'")
     			->get();
 
-    	$pdf = PDF::loadView('pdf.mingguan', compact('ambil', 'tglawal', 'tglakhir'))
-    	->setPaper('a4')
-    	->setWarnings(false);
+    	// $pdf = PDF::loadView('pdf.mingguan', compact('ambil', 'tglawal', 'tglakhir'))
+    	// ->setPaper('a4')
+    	// ->setWarnings(false);
     	// ->setOrientation('landscape');
-    	return $pdf->download(date('Y-m-d').'-laporan_mingguan.pdf');
-    	// return 'harian';
+    	// return $pdf->download(date('Y-m-d').'-laporan_mingguan.pdf');
+    	return view('pdf.mingguan', compact('ambil', 'tglawal', 'tglakhir'));
 
     	// echo "<pre>";
     	// print_r($ambil);
@@ -106,12 +106,12 @@ class LaporanCtrl extends Controller
     			->whereRaw("month(transaksi.created_at) = '$tglbulanan'")
     			->get();
 
-    	$pdf = PDF::loadView('pdf.bulanan', compact('ambil', 'tglbulanan'))
-    	->setPaper('a4')
-    	->setWarnings(false);
+    	// $pdf = PDF::loadView('pdf.bulanan', compact('ambil', 'tglbulanan'))
+    	// ->setPaper('a4')
+    	// ->setWarnings(false);
     	// ->setOrientation('landscape');
-    	return $pdf->download(date('Y-m-d').'-bulanan.pdf');
-
+    	// return $pdf->download(date('Y-m-d').'-bulanan.pdf');
+        return view('pdf.bulanan', compact('ambil', 'tglbulanan'));
     	// echo "<pre>";
     	// print_r($ambil);
     	// echo "</pre>";
@@ -147,7 +147,7 @@ class LaporanCtrl extends Controller
     // laporan obat habis
     public function obatHabis()
     {
-        $obathabis = Obat::where('isi', 0)->get();
+        $obathabis = Obat::where('isi', '<=', 0)->get();
         // return dd($obathabis);
         return view('laporan.obathabis', compact('obathabis'));
     }
@@ -193,11 +193,12 @@ class LaporanCtrl extends Controller
     {
         $obatdata = Obat::select('nama_obat', 'golongan', 'merk', 'rak', 'diskon', 'harga_pokok', 'harga_jual', 'kadaluarsa')->get();
         // $obatdata = e($obatdata);
-        $pdf = PDF::loadView('pdf.infoobat', compact('obatdata'))
-        ->setPaper('a4')
-        ->setWarnings(true);
-        // ->setOrientation('landscape');
-        return $pdf->stream(date('Y-m-d').'-laporan_obat.pdf');
+        // $pdf = PDF::loadView('pdf.infoobat', compact('obatdata'))
+        // ->setPaper('a4');
+        // ->setWarnings(true);
+        // ->setOrientation('portrai');
+        // return $pdf->stream(date('Y-m-d').'-laporan_obat.pdf');
+        return view('pdf.infoobat', compact('obatdata'));
     }
 
     // get cetak per rak 

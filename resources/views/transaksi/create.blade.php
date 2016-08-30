@@ -79,6 +79,9 @@
 					<p></p>
 					<div class="controls">
 						<button class="btn btn-primary" type="submit">Tambahkan</button>
+						<div id="finish" class="" style="display: inline">
+							<a href="{{url('finish')}}" class="btn btn-warning">Selesai</a>
+						</div>
 					</div>
 			</form>
 		</div>
@@ -100,9 +103,9 @@
 				<div id="d_nama_merk"></div>
 			</div>
 
-			<div id="finish" class="finish">
+			{{-- <div id="finish" class="finish">
 				<a href="{{url('finish')}}" class="btn btn-warning">Selesai</a>
-			</div>
+			</div> --}}
 
 			
 			{{-- <div id="cetaknota" class="cetaknota">

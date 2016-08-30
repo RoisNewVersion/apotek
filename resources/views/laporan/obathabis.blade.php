@@ -1,6 +1,6 @@
 @extends('layout.default')
 @section('content')
-<div class="span10">
+<div class="span12">
 <p></p>
 <div class="widget widget-table table-action">
 	<div class="widget-header">
@@ -10,7 +10,7 @@
 
 	<div class="widget-content">
 
-		<table class="table table-striped table-bordered">
+		<table id="obathabis" class="table table-striped table-bordered">
 			<?php $no = 1; ?>
 			<thead>
 				<tr>
@@ -37,4 +37,12 @@
 	</div>
 </div> 
 </div>
+@stop
+
+@section('datatable')
+	<script>
+		$(document).ready(function() {
+			$('#obathabis').DataTable();
+		});
+	</script>
 @stop

@@ -7,9 +7,19 @@
 	<title>Penjualan bulanan</title>
 	<link rel="stylesheet" href="">
 
-	<style type="text/css" media="screen">
-		.kop{
+	<style type="text/css">
+		@media print {
+			
+			table th, table td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			    font-size: xx-small;
+			    padding: 3px;
+			}
 
+			.kopatas{
+				page-break-after: always;
+			}
 		}
 
 		.kopatas
@@ -17,6 +27,12 @@
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 			width: 100%;
 			border-collapse: collapse;
+			font-size: xx-small;
+		}
+
+		table, th, td {
+		    border: 1px solid black;
+		    padding: 4px;
 		}
 
 		.altr
@@ -42,11 +58,11 @@
 		</tr>
 	</table> --}}
 
-	<img src="img/logo_apotek_2.jpg" alt="logo" width="100%" height="85">
+	<img src="{{asset('img/logo_apotek_2.jpg')}}" alt="logo" width="100%" height="85">
 	
 	Laporan penjualan bulan <?php echo $tglbulanan ?>
 
-	<table border="1" class="kopatas" style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;">
+	<table class="kopatas">
 		<tr>
 			<th>No.</th>
 			<th>Nama Obat</th>
@@ -63,31 +79,33 @@
 			$untung = 0;
 		?>
 
-		@foreach($ambil as $data)
+		@foreach(array_chunk($ambil, 100) as $datarow)
+			@foreach($datarow as $data)
 			<?php 
 				$total = $total + $data->total_harga;
 				$untung = $untung + $data->untung;
 			?>
-			<tr style="padding: 4px 4px 4px 4px;">
+			<tr>
 				<td><?= $no ?></td>
-				<td style="padding: 4px ;"><?= $data->nama_obat?></td>
-				<td style="padding: 4px ;"><?= $data->jumlah?></td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->harga, 0, '', '.')?></td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
-				<td style="padding: 4px ;"><?= $data->diskon?> %</td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->untung, 0, '', '.') ?></td>
+				<td ><?= $data->nama_obat?></td>
+				<td ><?= $data->jumlah?></td>
+				<td >Rp <?php echo number_format($data->harga, 0, '', '.')?></td>
+				<td >Rp <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
+				<td ><?= $data->diskon?> %</td>
+				<td >Rp <?php echo number_format($data->untung, 0, '', '.') ?></td>
 			</tr>
 		<?php $no++; ?>
+		@endforeach
 		@endforeach
 
 		<tr>
 			<td class="alt"></td>
 			<td class="alt"></td>
 			<td class="alt"></td>
-			<td style="padding: 4px ;"><b>Total </b></td>
-			<td style="padding: 4px ;"><b>Rp <?php echo number_format($total, 0, '', '.') ?></b></td>
+			<td ><b>Total </b></td>
+			<td ><b>Rp <?php echo number_format($total, 0, '', '.') ?></b></td>
 			<td></td>
-			<td style="padding: 4px ;"><b>Rp <?php echo number_format($untung, 0, '', '.') ?></b></td>
+			<td ><b>Rp <?php echo number_format($untung, 0, '', '.') ?></b></td>
 		</tr>
 
 	</table>

@@ -62,7 +62,7 @@
 	<p></p>
 	<a href="{{url('transaksi')}}" class="btn btn-info">Kembali transaksi</a>
 <?php } else { 
-	return redirect()->route('transaksi.index'); 
+	redirect()->route('transaksi.index'); 
 }
 
 ?>

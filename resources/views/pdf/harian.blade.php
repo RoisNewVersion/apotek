@@ -7,9 +7,19 @@
 	<title>Penjualan harian</title>
 	<link rel="stylesheet" href="">
 
-	<style type="text/css" media="screen">
-		.kop{
+	<style type="text/css">
+		@media print {
+			
+			table th, table td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			    font-size: xx-small;
+			    padding: 3px;
+			}
 
+			.kopatas{
+				page-break-after: always;
+			}
 		}
 
 		.kopatas
@@ -17,6 +27,12 @@
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 			width: 100%;
 			border-collapse: collapse;
+			font-size: xx-small;
+		}
+
+		table, th, td {
+		    border: 1px solid black;
+		    padding: 4px;
 		}
 
 		.altr
