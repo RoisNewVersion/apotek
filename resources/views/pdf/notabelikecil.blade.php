@@ -6,16 +6,44 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Nota</title>
 	<link rel="stylesheet" href="">
-	<style type="text/css">
-		@page{
-			margin: 0px 2px 0px 2px;
+	<style>
+		@media print {
+			html, body{
+				/*width: 58mm;
+				height: 150mm;
+				margin-right: -3px;
+				margin-top: 3px;
+				margin-bottom: 3px;
+				font-size: x-small;*/
+			}
+			@page{
+				width: 58mm;
+				height: 120mm;
+				margin-top: 3px;
+				margin-bottom: 3px; 
+				font-size: x-small;
+			}
+			
+			table th, table td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			    font-size: x-small;
+			    padding: 1px;
+			}
+
 		}
+
 		.kopatas
 		{
-			font-family: sans-serif;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			width: 100%;
 			border-collapse: collapse;
-			font-size: 10px;
-			/*border: 1px solid black;*/
+			font-size: xx-small;
+		}
+
+		table, th, td {
+		    border: 1px solid black;
+		    padding: 3px;
 		}
 	</style>
 </head>
@@ -26,9 +54,8 @@
 		<br>
 	</div>
 
-	<table width="100%" class="kopatas"  style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;">
+	<table class="kopatas">
 		<tr>
-			<th>No.</th>
 			<th>Nama</th>
 			<th>Jml</th>
 			<th>Hrg</th>
@@ -38,7 +65,7 @@
 		</tr>
 
 		<?php 
-			$no = 1; 
+			// $no = 1; 
 			$total = 0;
 		?>
 
@@ -46,29 +73,28 @@
 			<?php 
 				$total = $total + $data['total_harga'];
 			?>
-			<tr style="padding: 4px 4px 4px 4px;">
-				<td><?= $no ?></td>
-				<td style="padding: 4px ;"><?= substr($data->obit->nama_obat, 0, 10)?></td>
-				<td style="padding: 4px ;"><?= $data->jumlah?></td>
-				<td style="padding: 4px ;"> <?php echo number_format($data->harga, 0, '', '.')?></td>
-				<td style="padding: 4px ;"> <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
-				<td style="padding: 4px ;"><?= $data->diskon?>%</td>
+			<tr>
+				<td ><?= substr($data->obit->nama_obat, 0, 10)?></td>
+				<td ><?= $data->jumlah?></td>
+				<td > <?php echo number_format($data->harga, 0, '', '.')?></td>
+				<td > <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
+				<td ><?= $data->diskon?>%</td>
 				<td><?= $data->id ?></td>
 			</tr>
-		<?php $no++; ?>
+		<?php ?>
 		@endforeach
 
 		<tr>
 			<td class="alt"></td>
 			<td class="alt"></td>
 			<td class="alt"></td>
-			<td style="padding: 4px ;"><b>Total </b></td>
-			<td style="padding: 4px ;"><b><?php echo number_format($total, 0, '', '.') ?></b></td>
+			<td ><b>Total </b></td>
+			<td ><b><?php echo number_format($total, 0, '', '.') ?></b></td>
 			<td></td>
 		</tr>
 
 	</table>
-	<div style="font-size: 8">
+	<div style="font-size: 7">
 		Tgl : <?php echo date('d-m-Y'); ?>
 		<br><br>
 		<b>TERIMA KASIH</b>

@@ -273,7 +273,7 @@ class TransaksiCtrl extends Controller
 
         }
 
-            //ambil status = N.
+        //ambil status = N.
         $getN = Transaksi::where('status', '=', 'N')->get();
             // set ke session.
         Session::put('dataprint', $getN);

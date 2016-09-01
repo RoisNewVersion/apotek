@@ -1,14 +1,12 @@
 @extends('layout.default')
 @section('content')
+<div style="font-size: 18px;">Data obat habis (isi <= 3) </div>
+<button id="cetakhabis" onclick="cetakHabis();" type="button" class="btn btn-success">Cetak</button>
 <div class="span12">
 <p></p>
-<div class="widget widget-table table-action">
-	<div class="widget-header">
-		<i class="icon-list"></i>
-		<h3>Daftar obat habis</h3>
-	</div>
+<div class="">
 
-	<div class="widget-content">
+	<div class="">
 
 		<table id="obathabis" class="table table-striped table-bordered">
 			<?php $no = 1; ?>
@@ -44,5 +42,16 @@
 		$(document).ready(function() {
 			$('#obathabis').DataTable();
 		});
+
+		// show cetak obat dialog
+		function cetakHabis()
+		{
+			var left = (screen.width/2) - (800/2);
+			var right = (screen.height/2) - (640/2);
+
+			var url = '{{url('laporan/obathabis', ['aksi'=>'dialog'])}}';
+
+			window.open(url, '', 'width=800, height=640, scrollbars=yes, left='+left+', right='+right+'');
+		}
 	</script>
 @stop

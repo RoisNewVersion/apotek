@@ -145,11 +145,17 @@ class LaporanCtrl extends Controller
     }
 
     // laporan obat habis
-    public function obatHabis()
+    public function obatHabis($aksi)
     {
-        $obathabis = Obat::where('isi', '<=', 0)->get();
-        // return dd($obathabis);
-        return view('laporan.obathabis', compact('obathabis'));
+        if ($aksi == 'show') {
+            $obathabis = Obat::where('isi', '<=', 3)->get();
+            return view('laporan.obathabis', compact('obathabis'));
+        }elseif($aksi == 'dialog'){
+            $obathabis = Obat::where('isi', '<=', 3)->get();
+            return view('laporan.obathabisdialog', compact('obathabis'));
+        }else{
+            redirect('home');
+        } 
     }
 
     // hitung total transaksi hari ini.

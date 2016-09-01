@@ -9,6 +9,9 @@
 
 	<style type="text/css">
 		@media print {
+			.cetak{
+				display: none;
+			}
 			
 			table th, table td {
 			    border: 1px solid black;
@@ -18,7 +21,7 @@
 			}
 
 			.kopatas{
-				page-break-after: always;
+			    page-break-after: avoid;
 			}
 		}
 
@@ -57,7 +60,7 @@
 			<td style="font-size: 14px">Telp. 08985716073</td>
 		</tr>
 	</table> --}}
-
+	<button class="cetak" onclick="cetak();">Cetak</button>
 	<img src="{{asset('img/logo_apotek_2.jpg')}}" alt="logo" width="100%" height="85">
 	
 	Laporan penjualan bulan <?php echo $tglbulanan ?>
@@ -110,4 +113,9 @@
 
 	</table>
 </body>
+<script>
+	function cetak() {
+		window.print();
+	}
+</script>
 </html>

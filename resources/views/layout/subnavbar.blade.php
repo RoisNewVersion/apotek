@@ -45,7 +45,7 @@
             <li><a href="{!! url('laporan/penjualan') !!}">Laporan Penjualan</a></li>
             <li><a href="{!! url('laporan/cetak') !!}">Cetak Laporan Penjualan</a></li>
             <li><a href="{!! url('laporan/chart') !!}">Obat paling laris</a></li>
-            <li><a href="{!! url('laporan/obathabis') !!}">Obat habis</a></li>
+            <li><a href="{!! url('laporan/obathabis', ['aksi'=>'show']) !!}">Obat habis</a></li>
             <li><a href="{!! url('laporan/informasipendapatan') !!}">Informasi pendapatan</a></li>
             <li><a href="{!! url('laporan/informasiobat') !!}">Informasi obat</a></li>
             <li><a href="{!! url('laporan/cetakperrak') !!}">Cetak obat per rak</a></li>

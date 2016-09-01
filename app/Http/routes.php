@@ -115,13 +115,13 @@ Route::group(['middleware'=>'auth'], function()
 		// laporan harian
 		Route::get('harian', ['uses'=>'LaporanCtrl@harian']);
 		// laporan mingguan
-		Route::post('mingguan', ['uses'=>'LaporanCtrl@mingguan']);
+		Route::get('mingguan', ['uses'=>'LaporanCtrl@mingguan']);
 		// laporan bulanan
-		Route::post('bulanan', ['uses'=>'LaporanCtrl@bulanan']);
+		Route::get('bulanan', ['uses'=>'LaporanCtrl@bulanan']);
 		// laporan chart paling laris
 		Route::get('chart', ['middleware'=>'acl', 'is'=>'admin', 'uses'=>'LaporanCtrl@chartLaris']);
 		//laporan obat habis
-		Route::get('obathabis', ['uses'=>'LaporanCtrl@obatHabis']);
+		Route::get('obathabis/{aksi}', ['uses'=>'LaporanCtrl@obatHabis']);
 		// total pendapatan
 		Route::get('informasipendapatan', ['uses'=>'LaporanCtrl@countTotal']);
 		// total pendapatan
