@@ -130,10 +130,18 @@ Route::group(['middleware'=>'auth'], function()
 		Route::get('cetakperrak', ['uses'=>'LaporanCtrl@getCetakPerRak']);
 		// post cetak per rak
 		Route::post('cetakperrak', ['uses'=>'LaporanCtrl@postCetakPerRak']);
+		// surat permintaa
+		Route::get('sp', ['uses'=>'LaporanCtrl@sp', 'as'=>'sp']);
+		// post surat permintaa
+		Route::post('postsp', ['uses'=>'LaporanCtrl@postsp', 'as'=>'postsp']);
+		// hasil surat permintaa
+		Route::get('hasilsp', ['uses'=>'LaporanCtrl@hasilsp', 'as'=>'hasilsp']);
 		
 	});
 });
-
+Route::get('tessp', function() {
+    return view('pdf.sp');
+});
 // Route::get('user/{user}', [
 // 	'middleware' => ['auth', 'roles'], // A 'roles' middleware must be specified
 // 	'uses' => 'UserController@index',

@@ -226,6 +226,34 @@ class LaporanCtrl extends Controller
         return $pdf->stream(date('Y-m-d').'-laporan_obat_per_rak.pdf');
     }
 
+    // surat permintaan
+    public function sp()
+    {
+        return view('laporan.sp');
+    }
+
+    // post sp
+    public function postsp()
+    {
+        // print_r(Request::all());
+        Session::put('sp', Request::all());
+        
+    }
+
+    // open window
+    public function hasilsp()
+    {
+        if (Session::has('sp')) {
+            foreach (Session::get('sp') as $key) {
+                $data2[] = $key;
+            }
+        } else {
+            $data2[] = array();
+        }
+        Session::forget('sp');
+        return view('pdf.sp', compact('data2'));
+    }
+
     // check Acl
     public function checkAcl()
     {

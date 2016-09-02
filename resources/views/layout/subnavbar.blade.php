@@ -49,6 +49,8 @@
             <li><a href="{!! url('laporan/informasipendapatan') !!}">Informasi pendapatan</a></li>
             <li><a href="{!! url('laporan/informasiobat') !!}">Informasi obat</a></li>
             <li><a href="{!! url('laporan/cetakperrak') !!}">Cetak obat per rak</a></li>
+            <li class="divider"></li>
+            <li><a href="{!! url('laporan/sp') !!}">Surat permintaan</a></li>
           </ul>
         </li>
 

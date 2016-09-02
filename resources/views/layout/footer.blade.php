@@ -25,6 +25,12 @@
 <script src={!! asset("js/datatables.bootstrap.js") !!}></script> 
 <script src={!! asset("js/jquery-ui-1.10.4.js") !!}></script> 
 
+<script>
+  $.ajaxSetup({
+    headers: {'X-CSRF-Token' : $('meta[name=_token]').attr('content')}
+  });
+  
+</script>
 @include('sweet::alert')
 
 @yield('datatable')
