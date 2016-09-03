@@ -7,6 +7,13 @@
 <h3>Cari Nama Obat</h3>
 <input type="text" name="cariobat" id="cariobat" value="" placeholder="Cari">
 
+<select id="select_sp" name="select_sp" style="display: none;">
+	<option>Pilih Supllier</option>
+	@foreach($supl as $sup)
+		<option value="{{$sup}}">{{$sup}}</option>
+	@endforeach
+</select>
+
 	<div class="">
 		<h2>Daftar obat</h2>
 		<table class="table" id="lappenjualan">
@@ -37,6 +44,7 @@
 				var tab = this.api();
 				if (tab.page.info().recordsTotal > 0 ) {
 			    	$('#sp_finish').show();
+			    	$('#select_sp').show();
 			    }
 			}
 		});
@@ -69,7 +77,7 @@
 
  		var url = '{{route("hasilsp")}}';
 
- 		$.post('{{route('postsp')}}', {data: namaobat}, function(data, textStatus, xhr) {
+ 		$.post('{{route('postsp')}}', {data: namaobat, supl: $('#select_sp').val()}, function(data, textStatus, xhr) {
  		}).done(function(argument) {
  			// console.log(argument);
  			openWindow(url);

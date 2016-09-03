@@ -18,6 +18,7 @@ use DB;
 use App\User;
 use Auth;
 use App\Rak;
+use App\Supplier;
 
 class LaporanCtrl extends Controller
 {
@@ -229,15 +230,16 @@ class LaporanCtrl extends Controller
     // surat permintaan
     public function sp()
     {
-        return view('laporan.sp');
+        $supl = Supplier::lists('nama_supl');
+        return view('laporan.sp', ['supl'=>$supl]);
     }
 
     // post sp
     public function postsp()
     {
         // print_r(Request::all());
-        Session::put('sp', Request::all());
-        
+        Session::put('sp', Request::input('data'));
+        Session::put('nama_sp', Request::input('supl'));
     }
 
     // open window
@@ -250,7 +252,9 @@ class LaporanCtrl extends Controller
         } else {
             $data2[] = array();
         }
+        // print_r(Session::get('nama_sp'));
         Session::forget('sp');
+        Session::forget('nama_sp');
         return view('pdf.sp', compact('data2'));
     }
 

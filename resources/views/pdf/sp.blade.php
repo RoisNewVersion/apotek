@@ -15,7 +15,7 @@
 			@page{
 				width: 50%;
 				/*height: 120mm;*/
-				font-size: small;
+				/*font-size: small;*/
 			}
 			
 			/*table th, table td {
@@ -34,9 +34,6 @@
 			}
 
 			.kopatas th, .kopatas td{
-				
-				
-				
 			    padding: 3px;
 			    border-outline: 0px;
 			}
@@ -51,10 +48,8 @@
 			.kopatas2{
 				/*border: 1px solid black;*/
 				width: 50%;
-				font-size: x-small;
-			}
-
-			
+				font-size: xx-small;
+			}	
 		}
 
 		.kopatas th, .kopatas td
@@ -88,7 +83,7 @@
 			<td rowspan="2">
 				<img src="{{asset('img/logo_apotek_2.jpg')}}" height="45" alt="">
 			</td>
-			<td>GODONG, <?php echo date('d/m/Y') ?></td>
+			<td>GODONG, ....<?php echo date('/m/') ?>20....</td>
 			
 		</tr>
 		<tr>
@@ -96,15 +91,15 @@
 		</tr>
 		<tr>
 			<td>SIPA : 19851122/SIPA_33.15/2014/2045</td>
-			<td> ................................</td>
+			<td> {{Session::get('nama_sp') }}</td>
 		</tr>
 		<tr>
 			<td>SIA : 422/811/SIA/2014</td>
-			<td> ................................</td>
+			<td> </td>
 		</tr>
 		<tr>
 			<td>HP  : 0856-4000-6184</td>
-			<td> ................................</td>
+			<td> </td>
 		</tr>
 	</table>
 
@@ -122,8 +117,8 @@
 		</tr>
 
 		<?php $no = 1; ?>
-		@foreach($data2 as $data)
-		@foreach($data as $d)
+		{{-- @foreach($data2 as $data) --}}
+		@foreach($data2 as $d)
 			<tr>
 				<td width="10%">{{$no}}</td>
 				<td>{{$d}}</td>
@@ -132,7 +127,7 @@
 			</tr>
 		<?php $no++ ?>
 		@endforeach
-		@endforeach
+		{{-- @endforeach --}}
 		
 	</table>
 

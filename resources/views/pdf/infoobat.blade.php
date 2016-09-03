@@ -11,6 +11,10 @@
 
 	<style type="text/css">
 		@media print {
+
+			.cetak{
+				display: none;
+			}
 			
 			table th, table td {
 			    border: 1px solid black;
@@ -46,11 +50,11 @@
 
 </head>
 <body>
-
+<button class="cetak" onclick="cetak();">Cetak</button>
 	{{-- <img src="img/logo_apotek_2.jpg" alt="logo" width="100%" height="85"> --}}
-	
+	<div class="" style="font-size: 22px; text-align: center;">
 	Laporan informasi obat apotek bugel
-
+	</div>
 	<table class="kopatas">
 		<tr>
 			<th>No.</th>
@@ -107,4 +111,9 @@
 
 	</table>
 </body>
+<script>
+	function cetak() {
+		window.print();
+	}
+</script>
 </html>
