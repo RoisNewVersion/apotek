@@ -305,7 +305,7 @@ class TransaksiCtrl extends Controller
     public function cetakNota()
     {
         $html = Session::get('dataprint') ;
-        // Session::forget('dataprint');
+        Session::forget('dataprint');
         // $pdf = PDF::loadView('pdf.notabelikecil', compact('html'))
         // ->setPaper(array(0, 0, 226.77, 286.77))
         // ->setWarnings(false)

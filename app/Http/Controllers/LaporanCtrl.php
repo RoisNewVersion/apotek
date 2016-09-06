@@ -253,8 +253,8 @@ class LaporanCtrl extends Controller
             $data2[] = array();
         }
         // print_r(Session::get('nama_sp'));
-        Session::forget('sp');
-        Session::forget('nama_sp');
+        // Session::forget('sp');
+        // Session::forget('nama_sp');
         return view('pdf.sp', compact('data2'));
     }
 

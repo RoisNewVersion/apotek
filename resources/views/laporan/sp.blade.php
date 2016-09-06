@@ -65,6 +65,7 @@
  				]).draw();
  			// kosongkan lg inputnya
  			$('#cariobat').val('');
+ 			return false;
  		}
  	});
 

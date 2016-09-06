@@ -10,10 +10,17 @@
 			.cetak{
 				display: none;
 			}
+			@page{
+				width: 50%;
+			}
+
 			html, body{
-			font-size: xx-small;
-			font-family: 'Open Sans Condensed', sans-serif;
-		}
+				font-size: xx-small;
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
+			.isi{
+				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			}
 
 		}
 		html, body{
@@ -34,6 +41,7 @@
 	<br>
 	----------------------------------------
 	<br>
+	<div class="isi">
 	<?php 
 		// $no = 1; 
 		$total = 0;
@@ -52,6 +60,7 @@
 			<br>
 		<?php ?>
 		@endforeach
+	</div>
 		----------------------------------------
 		<br>
 			<b>Total : </b>
