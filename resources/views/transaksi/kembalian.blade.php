@@ -58,7 +58,7 @@
 	Uang Tunai : <input type="text" id="tunai" name="tunai" value="">
 	<br>
 {{-- 	<button id="btntunai">Hitung</button> --}}
-	<a href="{{url('cetaknota')}}" class="btn btn-danger">Cetak Nota</a>
+	<button id="aksicetak" onclick="aksicetak();" class="btn btn-danger">Cetak Nota</button>
 	<p></p>
 	<a href="{{url('transaksi')}}" class="btn btn-info">Kembali transaksi</a>
 <?php } else { 
@@ -72,30 +72,8 @@
 
 @section('datatable')
 <script>
-	$(document).ready(function(){
+$(document).ready(function(){
 
-		
-		
-
-		// $("#tunai").on('keyup', function() {
-		// 	var hitung = parseInt(tun) - parseInt(tot);
-
-		// 	$("#uangkembali").html(hitung);
-		// 	/* Act on the event */
-		// });
-
-
-	// $("#btntunai").click(function(event) {
-	// 	 // Act on the event 
-	// 	event.preventDefault();
-
-	// 	var tot = $("#total123").val();
-	// 	var tun = $("#tunai").val();
-
-	// 	var hitung = tun - tot;
-
-	// 	$("#uangkembali").val(hitung);
-	// });
 	$("#tunai").keyup(function() {
 		/* Act on the event */
 		var tot = $("#total123").val();
@@ -106,5 +84,15 @@
 		$("#kembalian").html('Rp. '+hitung);
 	});
 });
+// show popup cetak
+	function aksicetak()
+	{
+		var left = (screen.width/2) - (800/2);
+		var right = (screen.height/2) - (640/2);
+
+		var url = '{{url('cetaknota')}}';
+
+		window.open(url, '', 'width=800, height=640, scrollbars=yes, left='+left+', right='+right+'');
+	}
 </script>
 @stop

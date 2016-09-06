@@ -17,6 +17,10 @@ use Auth;
 
 class TransaksiCtrl extends Controller
 {
+    function __construct()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -301,13 +305,13 @@ class TransaksiCtrl extends Controller
     public function cetakNota()
     {
         $html = Session::get('dataprint') ;
-        Session::forget('dataprint');
-        $pdf = PDF::loadView('pdf.notabelikecil', compact('html'))
-        ->setPaper(array(0, 0, 226.77, 286.77))
-        ->setWarnings(false)
-        ->setOrientation('portrait');
-        return $pdf->download(date('Y-m-d h:m:i').'-apotek.pdf');
-        // return view('pdf.notabelikecil', compact('html'));
+        // Session::forget('dataprint');
+        // $pdf = PDF::loadView('pdf.notabelikecil', compact('html'))
+        // ->setPaper(array(0, 0, 226.77, 286.77))
+        // ->setWarnings(false)
+        // ->setOrientation('portrait');
+        // return $pdf->download(date('Y-m-d h:m:i').'-apotek.pdf');
+        return view('pdf.notabelikecil2', compact('html'));
     }
 
     public function getSelesai()
