@@ -9,6 +9,9 @@
 
 	<style type="text/css">
 		@media print {
+			.cetak{
+				display: none;
+			}
 			
 			table th, table td {
 			    border: 1px solid black;
@@ -44,20 +47,8 @@
 
 </head>
 <body>
-
-	{{-- <table border="0" align="center" style="text-align: center">
-		<tr>
-			<td rowspan="3"><img height="60" width="60" src="img/logo-ubl.jpg" alt="Loading"/></td>
-			<td style="font-size: 22px">APOTEK SEDERHANA</td>
-		</tr>
-		<tr>
-			<td style="font-size: 18px">Jl. Sembarang, gang buntu no. 23</td>
-		</tr>
-		<tr>
-			<td style="font-size: 14px">Telp. 08985716073</td>
-		</tr>
-	</table> --}}
-	<img src="img/logo_apotek_2.jpg" alt="logo" width="100%" height="85">
+	<button class="cetak" onclick="cetak();">Cetak</button>
+	<img src="{{asset('img/logo_apotek_2.jpg')}}" alt="logo" width="100%" height="85">
 	
 	Laporan penjualan harian <?php echo date('d-m-Y'); ?>
 
@@ -83,14 +74,14 @@
 				$total = $total + $data->total_harga;
 				$untung = $untung + $data->untung;
 			?>
-			<tr style="padding: 4px 4px 4px 4px;">
+			<tr >
 				<td><?= $no ?></td>
-				<td style="padding: 4px ;"><?= $data->nama_obat?></td>
-				<td style="padding: 4px ;"><?= $data->jumlah?></td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->harga, 0, '', '.')?></td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
-				<td style="padding: 4px ;"><?= $data->diskon?> %</td>
-				<td style="padding: 4px ;">Rp <?php echo number_format($data->untung, 0, '', '.') ?></td>
+				<td ><?= $data->nama_obat?></td>
+				<td ><?= $data->jumlah?></td>
+				<td >Rp <?php echo number_format($data->harga, 0, '', '.')?></td>
+				<td >Rp <?php echo number_format($data->total_harga, 0, '', '.') ?></td>
+				<td ><?= $data->diskon?> %</td>
+				<td >Rp <?php echo number_format($data->untung, 0, '', '.') ?></td>
 			</tr>
 		<?php $no++; ?>
 		@endforeach
@@ -99,12 +90,17 @@
 			<td class="alt"></td>
 			<td class="alt"></td>
 			<td class="alt"></td>
-			<td style="padding: 4px ;"><b>Total </b></td>
-			<td style="padding: 4px ;"><b>Rp <?php echo number_format($total, 0, '', '.') ?></b></td>
+			<td ><b>Total </b></td>
+			<td ><b>Rp <?php echo number_format($total, 0, '', '.') ?></b></td>
 			<td></td>
-			<td style="padding: 4px ;"><b>Rp <?php echo number_format($untung, 0, '', '.') ?></b></td>
+			<td ><b>Rp <?php echo number_format($untung, 0, '', '.') ?></b></td>
 		</tr>
 
 	</table>
 </body>
+<script>
+	function cetak() {
+		window.print();
+	}
+</script>
 </html>

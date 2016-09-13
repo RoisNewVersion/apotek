@@ -45,12 +45,12 @@ class LaporanCtrl extends Controller
     			->whereRaw("date(transaksi.created_at) = '$tgl'")
     			->get();
 
-    	$pdf = PDF::loadView('pdf.harian', compact('ambil'))
-    	->setPaper('a4')
-    	->setWarnings(false);
+    	// $pdf = PDF::loadView('pdf.harian', compact('ambil'))
+    	// ->setPaper('a4')
+    	// ->setWarnings(false);
     	// ->setOrientation('landscape');
-    	return $pdf->stream(date('Y-m-d').'-laporan_harian.pdf');
-    	// return 'harian';
+    	// return $pdf->stream(date('Y-m-d').'-laporan_harian.pdf');
+    	return view('pdf.harian', compact('ambil'));
 
     	// echo "<pre>";
     	// print_r($ambil);
