@@ -48,7 +48,7 @@
 	<div class="pull-right">
 		Uang kembali
 		<h1 id="kembalian">Rp. 0</h1>
-		
+		<input type="hidden" name="" id="kembalianinput">
 	</div>
 
 	Total bayar <h1><b>Rp <?php echo number_format($total, 0, '', '.') ?></b></h1>
@@ -82,15 +82,19 @@ $(document).ready(function(){
 		var hitung = parseInt(tun) -parseInt(tot);
 
 		$("#kembalian").html('Rp. '+hitung);
+		$("#kembalianinput").val(hitung);
 	});
 });
 // show popup cetak
 	function aksicetak()
 	{
+		var tunai = $("#tunai").val();
+		var kembalianinput = $("#kembalianinput").val();
+
 		var left = (screen.width/2) - (800/2);
 		var right = (screen.height/2) - (640/2);
 
-		var url = '{{url('cetaknota')}}';
+		var url = '{{url('cetaknota')}}'+'?tun='+tunai+'&kem='+kembalianinput;
 
 		window.open(url, '', 'width=800, height=640, scrollbars=yes, left='+left+', right='+right+'');
 	}

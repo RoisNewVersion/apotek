@@ -304,6 +304,8 @@ class TransaksiCtrl extends Controller
 
     public function cetakNota()
     {
+        $tun = Request::input('tun');
+        $kem = Request::input('kem');
         $html = Session::get('dataprint') ;
         Session::forget('dataprint');
         // $pdf = PDF::loadView('pdf.notabelikecil', compact('html'))
@@ -311,7 +313,7 @@ class TransaksiCtrl extends Controller
         // ->setWarnings(false)
         // ->setOrientation('portrait');
         // return $pdf->download(date('Y-m-d h:m:i').'-apotek.pdf');
-        return view('pdf.notabelikecil2', compact('html'));
+        return view('pdf.notabelikecil2', compact('html', 'tun', 'kem'));
     }
 
     public function getSelesai()

@@ -50,22 +50,28 @@
 			<?php 
 				$total = $total + $data['total_harga'];
 			?>
-				<?= $data->jumlah?>
-				<?= substr($data->obit->nama_obat, 0, 10)?>
-				
-				<?php echo number_format($data->harga, 0, '', '.')?>
-				<?php echo number_format($data->total_harga, 0, '', '.') ?>
-				<?= $data->diskon?>%
-			<?= $data->id ?>
+			<?= '*'.$data->jumlah?>
+		
+			<?= '&nbsp;'.substr($data->obit->nama_obat, 0, 12 ) ?>
+			<?php echo '&nbsp; &nbsp; &nbsp;'.number_format($data->harga, 0, '', '.')?>
+
+			<br>
+
+			<?php echo '&nbsp; &nbsp; &nbsp;'.number_format($data->total_harga, 0, '', '.') ?>
+			<?= '&nbsp; &nbsp; &nbsp;'.$data->diskon?>%
+			<?= '&nbsp; &nbsp; &nbsp;'.$data->id ?>
 			<br>
 		<?php ?>
 		@endforeach
 	</div>
 		----------------------------------------
 		<br>
-			<b>Total : </b>
-			<b><?php echo number_format($total, 0, '', '.') ?></b>
+			<b>Total : <?php echo number_format($total, 0, '', '.') ?></b><br>
+			<b>Tunai : <?php echo number_format($tun, 0, '', '.') ?></b><br>
+			<b>Kembali : <?php echo number_format($kem, 0, '', '.') ?></b>
 		<br>
+		<br>
+		Obat yg sudah dibeli tdk boleh di kembalikan.
 		<br>
 		<?php echo date('d-m-Y - H:i:s') ?>
 		<br>
