@@ -62,7 +62,7 @@
 			<th>Golongan</th>
 			<th>Merk</th>
 			<th>Rak</th>
-			<th>Diskon</th>
+			<th>Isi</th>
 			<th>Harga pokok</th>
 			<th>Harga jual</th>
 			<th>Kadaluarsa</th>
@@ -88,7 +88,7 @@
 				<td ><?= $data->golongan1->nama_gol?></td>
 				<td ><?= $data->merk1->nama_merk?></td>
 				<td ><?= $data->rak1->nama_rak?></td>
-				<td ><?= $data->diskon?></td>
+				<td ><?= $data->isi?></td>
 				<td >Rp <?php echo number_format($data->harga_pokok, 0, '', '.')?></td>
 				<td >Rp <?php echo number_format($data->harga_jual, 0, '', '.') ?></td>
 				<td ><?= $data->kadaluarsa?></td>
