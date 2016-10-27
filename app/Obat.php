@@ -90,4 +90,9 @@ class Obat extends Model
     {
         return $this->belongsTo('App\Golongan', 'golongan', 'id');
     }
+
+    public function satuan1()
+    {
+        return $this->belongsTo('App\Satuan', 'satuan', 'id');
+    }
 }

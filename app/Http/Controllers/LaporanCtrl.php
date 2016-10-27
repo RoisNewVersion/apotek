@@ -19,6 +19,7 @@ use App\User;
 use Auth;
 use App\Rak;
 use App\Supplier;
+use App\Satuan;
 
 class LaporanCtrl extends Controller
 {
@@ -198,7 +199,7 @@ class LaporanCtrl extends Controller
     // informasi obat
     public function infoObat()
     {
-        $obatdata = Obat::select('nama_obat', 'golongan', 'merk', 'rak', 'isi', 'harga_pokok', 'harga_jual', 'kadaluarsa')->get();
+        $obatdata = Obat::select('nama_obat', 'golongan', 'merk', 'rak', 'isi', 'harga_pokok', 'harga_jual', 'kadaluarsa', 'satuan')->get();
         // $obatdata = e($obatdata);
         // $pdf = PDF::loadView('pdf.infoobat', compact('obatdata'))
         // ->setPaper('a4');

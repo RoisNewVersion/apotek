@@ -52,7 +52,7 @@
 <body>
 <button class="cetak" onclick="cetak();">Cetak</button>
 	{{-- <img src="img/logo_apotek_2.jpg" alt="logo" width="100%" height="85"> --}}
-	<div class="" style="font-size: 22px; text-align: center;">
+	<div class="" style="font-size: 22px;">
 	Laporan informasi obat apotek bugel
 	</div>
 	<table class="kopatas">
@@ -63,6 +63,7 @@
 			<th>Merk</th>
 			<th>Rak</th>
 			<th>Isi</th>
+			<th>Satuan</th>
 			<th>Harga pokok</th>
 			<th>Harga jual</th>
 			<th>Kadaluarsa</th>
@@ -89,6 +90,7 @@
 				<td ><?= $data->merk1->nama_merk?></td>
 				<td ><?= $data->rak1->nama_rak?></td>
 				<td ><?= $data->isi?></td>
+				<td ><?= $data->satuan1->nama_satuan?></td>
 				<td >Rp <?php echo number_format($data->harga_pokok, 0, '', '.')?></td>
 				<td >Rp <?php echo number_format($data->harga_jual, 0, '', '.') ?></td>
 				<td ><?= $data->kadaluarsa?></td>
@@ -98,6 +100,7 @@
 		@endforeach
 
 		<tr>
+			<td class="alt"></td>
 			<td class="alt"></td>
 			<td class="alt"></td>
 			<td class="alt"></td>
