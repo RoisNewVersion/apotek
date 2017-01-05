@@ -30,11 +30,21 @@
 						</div>
 
 						<div class="control-group">
+							<label class="control-label" for="rak">Rak</label>
+							<div class="controls">
+								{!! Form::select('rak', $rak,  null, ['id'=>'rak']) !!}
+								{!!$errors->first('rak', '<p class="help-block">:message</p>')!!}
+								<a class="btn btn-info btn-xs" href="{!! route('rak.create') !!}"><i class="icon-plus"></i></a>
+							</div>
+						</div>
+
+						<div class="control-group">
 							<label class="control-label" for="golongan">Golongan</label>
 							<div class="controls">
 
 								{!! Form::select('golongan', $golongan,  null, ['id'=>'golongan']) !!}
 								{!!$errors->first('golongan', '<p class="help-block">:message</p>')!!}
+								<a class="btn btn-info btn-xs" href="{!! route('golongan.create') !!}"><i class="icon-plus"></i></a>
 							</div>
 						</div>
 						
@@ -43,45 +53,52 @@
 							<div class="controls">
 								{!! Form::select('merk', $merk,  null, ['id'=>'merk']) !!}
 								{!!$errors->first('merk', '<p class="help-block">:message</p>')!!}
-							</div>
-						</div>
-					</fieldset>	
-				</div>
-				<div class="span5">
-					<fieldset>
-						<div class="control-group">
-							<label class="control-label" for="supplier">Supplier / PBF</label>
-							<div class="controls">
-								{!! Form::select('supplier', $supplier,  null, ['id'=>'supplier']) !!}
-								{!!$errors->first('supplier', '<p class="help-block">:message</p>')!!}
+								<a class="btn btn-info btn-xs" href="{!! route('merk.create') !!}"><i class="icon-plus"></i></a>
 							</div>
 						</div>
 
-						<div class="control-group">
-							<label class="control-label" for="rak">Rak</label>
-							<div class="controls">
-								{!! Form::select('rak', $rak,  null, ['id'=>'rak']) !!}
-								{!!$errors->first('rak', '<p class="help-block">:message</p>')!!}
-							</div>
-						</div>
-
-						<div class="control-group">
-							<label class="control-label" for="diskon">Diskon</label>
-							<div class="controls">
-								{!! Form::input('text', 'diskon', Request::old('diskon'), ['id'=>'diskon', 'class'=>'']) !!} %
-								{!!$errors->first('diskon', '<p class="help-block">:message</p>')!!}
-							</div>
-						</div>
-					</fieldset>
-				</div>
-
-				<div class="span5">
-					<fieldset>
 						<div class="control-group">
 							<label class="control-label" for="satuan">Satuan</label>
 							<div class="controls">
 								{!! Form::select('satuan', $satuan,  null, ['id'=>'satuan']) !!} 
 								{!!$errors->first('satuan', '<p class="help-block">:message</p>')!!}
+								<a class="btn btn-info btn-xs" href="{!! route('satuan.create') !!}"><i class="icon-plus"></i></a>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="supplier">Supplier / PBF</label>
+							<div class="controls">
+								{!! Form::select('supplier', $supplier,  null, ['id'=>'supplier']) !!}
+								{!!$errors->first('supplier', '<p class="help-block">:message</p>')!!}
+								<a class="btn btn-info btn-xs" href="{!! route('supplier.create') !!}"><i class="icon-plus"></i></a>
+							</div>
+						</div>
+
+						<!--<div class="control-group">
+							<label class="control-label" for="diskon">Diskon</label>
+							<div class="controls"> -->
+								{!! Form::input('hidden', 'diskon', '0', ['id'=>'diskon', 'class'=>'']) !!} 
+								{!!$errors->first('diskon', '<p class="help-block">:message</p>')!!}
+							<!--</div>
+						</div>-->
+					</fieldset>	
+				</div>
+
+				<div class="span5">
+					<fieldset>
+						<div class="control-group">
+							<label class="control-label" for="harga_pokok">Harga Pokok</label>
+							<div class="controls">
+								{!! Form::input('text', 'harga_pokok', Request::old('harga_pokok'), ['id'=>'harga_pokok', 'class'=>'']) !!} 
+								{!!$errors->first('harga_pokok', '<p class="help-block">:message</p>')!!}
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="harga_jual">Harga Jual</label>
+							<div class="controls">
+								{!! Form::input('text', 'harga_jual', Request::old('harga_jual'), ['id'=>'harga_jual', 'class'=>'']) !!} 
+								{!!$errors->first('harga_jual', '<p class="help-block">:message</p>')!!}
 							</div>
 						</div>
 
@@ -90,26 +107,6 @@
 							<div class="controls">
 								{!! Form::input('text', 'isi', Request::old('isi'), ['id'=>'isi', 'class'=>'', 'required']) !!} 
 								{!!$errors->first('isi', '<p class="help-block">:message</p>')!!}
-							</div>
-						</div>
-
-						<div class="control-group">
-							<label class="control-label" for="harga_pokok">Harga Pokok</label>
-							<div class="controls">
-								{!! Form::input('text', 'harga_pokok', Request::old('harga_pokok'), ['id'=>'harga_pokok', 'class'=>'']) !!} 
-								{!!$errors->first('harga_pokok', '<p class="help-block">:message</p>')!!}
-							</div>
-						</div>
-					</fieldset>
-				</div>
-
-				<div class="span5">
-					<fieldset>
-						<div class="control-group">
-							<label class="control-label" for="harga_jual">Harga Jual</label>
-							<div class="controls">
-								{!! Form::input('text', 'harga_jual', Request::old('harga_jual'), ['id'=>'harga_jual', 'class'=>'']) !!} 
-								{!!$errors->first('harga_jual', '<p class="help-block">:message</p>')!!}
 							</div>
 						</div>
 
@@ -131,6 +128,9 @@
 						</div>
 					</fieldset>
 				</div>
+
+			</div>
+			<div class="row">
 				<div class="span5">
 					<div class="form-actions">
 						<button type="submit" class="btn btn-primary">Save</button> 
@@ -139,7 +139,6 @@
 					{!! Form::close() !!}
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </div> 
