@@ -5,7 +5,7 @@
 <p></p>
 <div class="">
 
-	<div class="">
+	<div class="" style="padding-left: 30px;">
 		<table id="lappenjualan" class="table table-bordered table-condensed table-striped">
 		    <thead>
 		    <tr>

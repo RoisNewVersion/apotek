@@ -2,6 +2,7 @@
 @section('content')
 <div class="span6">
 <a class="btn btn-small btn-primary" title="Tambah" href={!! route("rak.create") !!}><i class="btn-icon-only icon-pencil"></i> Tambah</a>
+<a class="btn btn-success" href="{!! route('obat.create') !!}">Back</a>
 <p></p>
 <div class="widget widget-table table-action">
 	<div class="widget-header">

@@ -1,6 +1,6 @@
 @extends('layout.default')
 @section('content')
-<div class="widget">
+<div class="widget" style="padding: 30px;">
 
 <?php if(Session::has('dataprint')) { ?>
 	<table class="table table-striped table-bordered">

@@ -8,8 +8,8 @@
 
 	<div class="widget-content">
 		<center>
-		<h2>Apotek sederhana</h2>
-		<img height="600" width="800" class="img-responsive" src={!! asset("img/apotek.jpg") !!} alt="Logo" title="Apotek">
+		<h2>Sistem Informasi Pengolahan Data Stok Obat</h2>
+		<img height="600" width="800" class="img-responsive" src={!! asset("img/bugel.jpg") !!} alt="Logo" title="Apotek">
 		</center>
 	</div>
 </div> 

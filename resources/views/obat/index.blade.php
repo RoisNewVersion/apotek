@@ -3,7 +3,7 @@
 <div class="col-md-12">
 <a class="btn btn-small btn-primary" title="Tambah" href={!! route("obat.create") !!}><i class="btn-icon-only icon-pencil"></i> Tambah</a>
 <p></p>
-<div class="">
+<div class="" style="padding-left: 30px;">
 
 	<div class="">
 		<table id="obat" class="table table-bordered table-condensed table-striped">

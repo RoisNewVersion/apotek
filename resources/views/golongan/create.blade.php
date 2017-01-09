@@ -21,7 +21,7 @@
 
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary">Save</button> 
-					<a class="btn btn-success" href="{!! route('golongan.index') !!}">Cancel</a>
+					<a class="btn btn-success" href="{!! route('obat.create') !!}">Cancel</a>
 				</div> <!-- /form-actions -->
 	
 			</fieldset>	
