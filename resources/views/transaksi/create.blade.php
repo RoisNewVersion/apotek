@@ -42,14 +42,14 @@
 			<form action="{!! route('transaksi.store') !!}" id="tambah_obat" accept-charset="utf-8" method="post" class="form-horizontal">
 
 				<input type="hidden" id="token" name="_token" value="{{ Session::getToken() }}">
-
-				<label class="control-label" for="jenis">Jenis pembeli</label>
+				<input type="hidden" id="jenis" name="jenis" value="u">
+				{{-- <label class="control-label" for="jenis">Jenis pembeli</label>
 				<div class="controls">
 					<select id="jenis" name="jenis">
 						<option value="u">Umum</option>
 						<option value="k">Khusus</option>
 					</select>
-				</div>
+				</div> --}}
 
 				<div class="controls">
 					--------------------------------------------------
