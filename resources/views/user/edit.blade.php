@@ -34,14 +34,14 @@
 						{!!$errors->first('password', '<p class="help-block">:message</p>')!!}
 					</div>
 				</div>
-
-				<div class="control-group">
+				<input type="hidden" name="level" id="level" value="admin">
+				{{-- <div class="control-group">
 					<label class="control-label" for="level">Level user</label>
 					<div class="controls">
 						{!! Form::select('level', $role, null, ['id'=>'level', 'class'=>'span6']) !!}
 						{!!$errors->first('level', '<p class="help-block">:message</p>')!!}
 					</div>
-				</div>
+				</div> --}}
 
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary">Edit</button> 
