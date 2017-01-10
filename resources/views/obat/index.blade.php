@@ -15,7 +15,7 @@
 		        <th>Isi</th>
 		        <th>Hrg. Pokok</th>
 		        <th>Hrg. Jual</th>
-		        <th>Diskon</th>
+		        {{-- <th>Diskon</th> --}}
 		        <th>Rak</th>
 		        <th>Golongan</th>
 		        <th>Merk</th>
@@ -48,7 +48,7 @@
 	            {data: 'isi', name: 'isi', orderable: false, searchable: false},
 	            {data: 'harga_pokok', name: 'harga_pokok', orderable: false, searchable: false},
 	            {data: 'harga_jual', name: 'harga_jual', orderable: false, searchable: false},
-	            {data: 'diskon', name: 'diskon',orderable: false, searchable: false},
+	            
 	            {data: 'nama_rak', name: 'nama_rak', orderable: false, searchable: false},
 	            {data: 'nama_gol', name: 'nama_gol', orderable: false, searchable: false},
 	            {data: 'nama_merk', name: 'nama_merk', orderable: false, searchable: false},

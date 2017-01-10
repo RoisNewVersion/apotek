@@ -41,7 +41,7 @@ class AjaxCtrl extends Controller
 				->join('merk', 'obat.merk', '=', 'merk.id')
 				->join('satuan', 'obat.satuan', '=', 'satuan.id')
 				->join('supplier', 'obat.supplier', '=', 'supplier.id')
-				->select(['obat.id', 'obat.nama_obat', 'obat.barcode', 'obat.diskon', 'obat.isi', 'obat.harga_pokok', 'obat.harga_jual', 'obat.status', 'obat.kadaluarsa',
+				->select(['obat.id', 'obat.nama_obat', 'obat.barcode', 'obat.isi', 'obat.harga_pokok', 'obat.harga_jual', 'obat.status', 'obat.kadaluarsa',
 				 'rak.nama_rak', 'golongan.nama_gol', 'merk.nama_merk', 'satuan.nama_satuan', 'supplier.nama_supl']);
 
 		// return Datatables::of($obats)->make();
@@ -56,7 +56,7 @@ class AjaxCtrl extends Controller
 
 					return $html;
 				})
-				->editColumn('diskon', '{!! $diskon !!}'. '%')
+				//->editColumn('diskon', '{!! $diskon !!}'. '%')
 				->editColumn('harga_pokok', 'Rp {!!  number_format($harga_pokok, 0, "", ".") !!}')
 				->editColumn('harga_jual', 'Rp {!!  number_format($harga_jual, 0, "", ".") !!}')
 				->make(true);
