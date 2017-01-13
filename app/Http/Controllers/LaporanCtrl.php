@@ -20,6 +20,7 @@ use Auth;
 use App\Rak;
 use App\Supplier;
 use App\Satuan;
+use App\DataMasuk;
 
 class LaporanCtrl extends Controller
 {
@@ -217,15 +218,16 @@ class LaporanCtrl extends Controller
     }
 
     // post cetak per rak 
-    public function postCetakPerRak()
+    public function postCetakPerRak($idrak)
     {
-        $rak = Request::input('rak');
+        // $rak = Request::input('rak');
 
-        $obatdata = Obat::where('rak', '=', $rak)->get();
-        $pdf = PDF::loadView('pdf.infoobat', compact('obatdata'))
-            ->setPaper('a4')
-            ->setWarnings(false);
-        return $pdf->stream(date('Y-m-d').'-laporan_obat_per_rak.pdf');
+        $obatdata = Obat::where('rak', '=', $idrak)->get();
+        // $pdf = PDF::loadView('pdf.infoobat', compact('obatdata'))
+        //     ->setPaper('a4')
+        //     ->setWarnings(false);
+        // return $pdf->stream(date('Y-m-d').'-laporan_obat_per_rak.pdf');
+        return view('pdf.infoobat', compact('obatdata'));
     }
 
     // surat permintaan
@@ -257,6 +259,35 @@ class LaporanCtrl extends Controller
         // Session::forget('sp');
         // Session::forget('nama_sp');
         return view('pdf.sp', compact('data2'));
+    }
+
+    // laporan data masuk
+    public function datamasuk()
+    {
+        return view('laporan.datamasuk');
+    }
+
+    // laporan data masuk cetak
+    public function datamasukCetak()
+    {
+        $rules = ['tglawal'=>'required|date', 'tglakhir'=>'required|date'];
+        $tglawal=Request::input('tglawal');
+        $tglakhir=Request::input('tglakhir');
+        // print_r(Request::all());
+        // die();
+        $validator = Validator::make(Request::all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
+        $datas = DB::table('datamasuk')->join('obat', 'datamasuk.obat_id', '=', 'obat.id')
+                ->select('obat.id', 'obat.nama_obat', DB::raw('sum(datamasuk.jml) as jml'))
+                ->whereRaw("date(datamasuk.created_at) between '$tglawal' and '$tglakhir'")
+                // ->sum('jml')
+                ->groupBy('obat_id')
+                ->get();
+        return view('laporan.datamasukcetak', compact('datas'));
     }
 
     // check Acl

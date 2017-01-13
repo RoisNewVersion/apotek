@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Obat habis cetak</title>
+	<title>Data obat masuk</title>
 	<link rel="stylesheet" href="">
 	<style>
 		@media print {
@@ -39,30 +39,21 @@
 </head>
 <body>
 	<button class="cetak" onclick="cetak();">Cetak</button>
-	<div style="font-size: 12px; text-align: center;">Data obat habis (isi <= 3) APOTEK BUGEL <?php echo date('d-M-Y') ?></div>
+	<div style="font-size: 12px; text-align: center;">Data obat masuk APOTEK BUGEL </div>
 	<table class="kopatas">
 		<?php $no = 1; ?>
 		<thead>
 			<tr>
 				<th>No</th>
 				<th>Nama Obat</th>
-				<th>Isi</th>
-				<th>Satuan</th>
-				<th>Merk</th>
-				<th>Supplier</th>
-				<th>No. Telp Supplier</th>
+				<th>Jumlah masuk</th>
 		</thead>
 		<tbody>
-			@foreach ($obathabis as $data)
+			@foreach ($datas as $data)
 				<tr>
 					<td>{!! $no !!}</td>
 					<td>{!! $data->nama_obat!!}</td>
-					<td>{!! $data->isi!!}</td>
-					<td>{!! $data->satuan1->nama_satuan !!}</td>
-					<td>{!! $data->obathabis_merk->nama_merk !!}</td>
-					<td>{!! $data->obathabis_supplier->nama_supl !!}</td>
-					<td>{!! $data->obathabis_supplier->hp !!}</td>
-				</tr>
+					<td>{!! $data->jml!!}</td>
 			<?php $no++ ?>
 			@endforeach
 			

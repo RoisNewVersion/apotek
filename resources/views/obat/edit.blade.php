@@ -64,14 +64,14 @@
 								{!!$errors->first('rak', '<p class="help-block">:message</p>')!!}
 							</div>
 						</div>
-
-						<div class="control-group">
+						<input type="hidden" name="diskon" id="diskon" value="0">
+						{{-- <div class="control-group">
 							<label class="control-label" for="diskon">Diskon</label>
 							<div class="controls">
 								{!! Form::input('text', 'diskon', null, ['id'=>'diskon', 'class'=>'']) !!} %
 								{!!$errors->first('diskon', '<p class="help-block">:message</p>')!!}
 							</div>
-						</div>
+						</div> --}}
 					</fieldset>
 				</div>
 

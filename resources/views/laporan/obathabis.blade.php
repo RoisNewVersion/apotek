@@ -14,6 +14,8 @@
 				<tr>
 					<th>No</th>
 					<th>Nama Obat</th>
+					<th>isi</th>
+					<th>Satuan</th>
 					<th>Merk</th>
 					<th>Supplier</th>
 					<th>No. Telp Supplier</th>
@@ -23,6 +25,8 @@
 					<tr>
 						<td>{!! $no !!}</td>
 						<td>{!! $data->nama_obat!!}</td>
+						<td>{!! $data->isi!!}</td>
+						<td>{!! $data->satuan1->nama_satuan !!}</td>
 						<td>{!! $data->obathabis_merk->nama_merk !!}</td>
 						<td>{!! $data->obathabis_supplier->nama_supl !!}</td>
 						<td>{!! $data->obathabis_supplier->hp !!}</td>

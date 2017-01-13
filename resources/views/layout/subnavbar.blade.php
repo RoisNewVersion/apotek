@@ -42,8 +42,10 @@
         <?php $tabLaporan = ['laporan'] ?>
         <li class="dropdown {!! Menu::checkActiveRoute($tabLaporan) !!}"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-print"></i><span>Laporan</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="{!! url('laporan/penjualan') !!}">Laporan Penjualan</a></li>
-            <li><a href="{!! url('laporan/cetak') !!}">Cetak Laporan Penjualan</a></li>
+            <li><a href="{!! url('laporan/penjualan') !!}">Laporan Data Keluar</a></li>
+            <li><a href="{!! route('datamasuk') !!}">Laporan Data Masuk</a></li>
+            <li><a href="{!! route('persediaanobat') !!}">Laporan Persediaan Obat</a></li>
+            {{-- <li><a href="{!! url('laporan/cetak') !!}">Cetak Laporan Penjualan</a></li> --}}
             {{-- <li><a href="{!! url('laporan/chart') !!}">Obat paling laris</a></li> --}}
             <li><a href="{!! url('laporan/obathabis', ['aksi'=>'show']) !!}">Obat habis</a></li>
             {{-- <li><a href="{!! url('laporan/informasipendapatan') !!}">Informasi pendapatan</a></li> --}}

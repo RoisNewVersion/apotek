@@ -18,6 +18,7 @@ use App\Golongan;
 use App\Merk;
 use Auth;
 use App\User;
+use App\DataMasuk;
 
 class ObatCtrl extends Controller
 {
@@ -65,6 +66,7 @@ class ObatCtrl extends Controller
         $cek = Obat::create($this->input());
 
         if ($cek) {
+            DataMasuk::create(['obat_id'=>$cek->id, 'jml'=>$cek->isi]);
             SweetAlert::success('Data berhasil masuk', 'Selamat')->autoclose(2000);
         } else {
             SweetAlert::error('Data gagal masuk', 'Pesan')->autoclose(2000);
@@ -126,6 +128,7 @@ class ObatCtrl extends Controller
         $cek = $obat->update($this->input());
 
         if ($cek) {
+            DataMasuk::create(['obat_id'=>$obat->id, 'jml'=>$obat->isi]);
             SweetAlert::success('Data berhasil diedit', 'Selamat')->autoclose(2000);
         } else {
             SweetAlert::error('Data gagal diedit', 'Pesan')->autoclose(2000);

@@ -128,14 +128,20 @@ Route::group(['middleware'=>'auth'], function()
 		Route::get('informasiobat', ['uses'=>'LaporanCtrl@infoObat']);
 		// view cetak per rak
 		Route::get('cetakperrak', ['uses'=>'LaporanCtrl@getCetakPerRak']);
-		// post cetak per rak
-		Route::post('cetakperrak', ['uses'=>'LaporanCtrl@postCetakPerRak']);
+		// get cetak per rak
+		Route::get('cetakperrakget/{idrak}', ['uses'=>'LaporanCtrl@postCetakPerRak']);
 		// surat permintaa
 		Route::get('sp', ['uses'=>'LaporanCtrl@sp', 'as'=>'sp']);
 		// post surat permintaa
 		Route::post('postsp', ['uses'=>'LaporanCtrl@postsp', 'as'=>'postsp']);
 		// hasil surat permintaa
 		Route::get('hasilsp', ['uses'=>'LaporanCtrl@hasilsp', 'as'=>'hasilsp']);
+		// laporan data masuk
+		Route::get('datamasuk', ['uses'=>'LaporanCtrl@datamasuk', 'as'=>'datamasuk']);
+		// laporan data masuk cetak
+		Route::get('datamasuk/cetak', ['uses'=>'LaporanCtrl@datamasukCetak', 'as'=>'datamasukcetak']);
+		// laporan persedian obat
+		Route::get('persediaanobat', ['uses'=>'LaporanCtrl@getCetakPerRak', 'as'=>'persediaanobat']);
 		
 	});
 });
